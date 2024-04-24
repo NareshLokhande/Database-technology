@@ -1,0 +1,9 @@
+Overview of SQL.
+
+1) Does ANSI recognize the data type DATE?
+	The DATE data type represents a date value without a time component. 
+	It's used to store dates in the format YYYY-MM-DD.
+
+
+2) Which subdivision of SQL is used to insert values in tables?
+	The subdivision of SQL used to insert values into tables is known as the Data Manipulation Language (DML).
