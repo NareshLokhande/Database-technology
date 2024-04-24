@@ -44,3 +44,19 @@ mysql> select * from Day6_emp;
 5 rows in set (0.02 sec)
 
 
+mysql> select dname, ename from day6_emp, day6_dept
+where day6_dept.deptno = day6_emp.deptno;
++-------+--------+
+| dname | ename  |
++-------+--------+
+| TRN   | Arun   |
+| TRN   | Ali    |
+| TRN   | Kirun  |
+| EXP   | Jack   |
+| EXP   | Thomas |
++-------+--------+
+5 rows in set (0.02 sec)
+
+
+
+
