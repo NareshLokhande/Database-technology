@@ -7,3 +7,4 @@ Overview of SQL.
 
 2) Which subdivision of SQL is used to insert values in tables?
 	The subdivision of SQL used to insert values into tables is known as the Data Manipulation Language (DML).
+
