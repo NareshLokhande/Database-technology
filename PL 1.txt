@@ -1,0 +1,211 @@
+1. Write a program that computes the perimeter and the area of a rectangle. Define
+your own values for the length and width. (Assuming that L and W are the length
+and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.
+
+FOR OUTPUT :
+	create table tempp_rect
+	(
+	fir int,
+	sec char(15)
+	);
+
+CODE :
+	delimiter //
+	create procedure rectangle(L float, W float)
+	begin
+		declare perimeter float;
+		declare Area float;
+		set perimeter = 2*(L+W);
+		set Area = L*W;
+		insert into tempp_rect values(perimeter, 'Perimeter');
+		insert into tempp_rect values(Area, 'Area');
+	end;//
+	delimiter ;
+
+CALLING : 
+	call rectangle(8, 10);
+
+OUTPUT :
+	mysql> select * from tempp_rect;
+	+------+-----------+
+	| fir  | sec       |
+	+------+-----------+
+	|   36 | Perimeter |
+	|   80 | Area      |
+	+------+-----------+
+	2 rows in set (0.00 sec)
+
+2. Write a program that declares an integer variable called num, assigns a value to it,
+and computes and inserts into the tempp table the value of the variable itself, its
+square, and its cube.
+
+OUTPUT TABLE :
+	create table tempp_num(fir int, sec char(15));
+
+CODE :
+	delimiter //
+	create procedure number(n int)
+	begin
+		declare num int;
+		declare square float;
+		declare c float;
+		set square = n*n;
+		set c = n*n*n;
+		insert into tempp_num values(n, 'Variable');
+		insert into tempp_num values(square, 'Square');
+		insert into tempp_num values(c, 'Cube');
+	end;//
+	delimiter ;
+
+CALLING : 
+	call number(8);
+
+OUTPUT :
+	mysql> select * from tempp_num;
+	+------+----------+
+	| fir  | sec      |
+	+------+----------+
+	|    8 | Variable |
+	|   64 | Square   |
+	|  512 | Cube     |
+	+------+----------+
+	3 rows in set (0.00 sec)
+
+
+3. Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice
+versa. The required formulae are:- C= (F-32)*5/9
+F= 9/5*C + 32
+
+OUTPUT TABLE :
+	create table temp_conv(celsius float, Fahrenheit float);
+
+CODE :
+	delimiter //
+	create procedure tempconvert(f float, c float)
+	begin
+	case
+	when f is not null then 
+		set c= (f-32)*5/9;
+		when C is not null then 
+		set f= (9/5)*c + 32;
+	else
+		begin
+		end;
+	end case;
+	insert into temp_conv values(f, c);
+	end;//
+	delimiter ;
+
+CALLING :
+	call temp_convert;
+
+OUTPUT :
+
+	mysql> select * from temp_conv;
+	+---------+------------+
+	| celsius | Fahrenheit |
+	+---------+------------+
+	|      40 |    4.44444 |
+	+---------+------------+
+	1 row in set (0.00 sec)
+
+
+
+4. Convert a number of inches into yards, feet, and inches. For example, 124 inches
+equals 3 yards, 1 foot, and 4 inches.
+
+OUTPUT TABLE : 
+	create table Temp_length_conv(Yards int, Foot int, Inches int);
+
+CODE :
+	delimiter //
+	create procedure length_conv(i int)
+	begin
+	declare yard int;
+	declare foot int;
+	declare inch int;
+
+	set yard = i / 36;
+	set foot = (i % 36) /12;
+	set inch = i % 12;
+	insert into Temp_length_conv values(yard, foot, inch);
+	end; //
+	delimiter ;
+
+CALLING :
+	call length_conv(124);
+
+OUTPUT :
+	mysql> select * from temp_length_conv;
+	+-------+------+--------+
+	| Yards | Foot | Inches |
+	+-------+------+--------+
+	|     3 |    1 |      4 |
+	+-------+------+--------+
+	3 rows in set (0.00 sec)
+
+
+5. Write a program that enables a user to input an integer. The program should then
+state whether the integer is evenly divisible by 5.
+
+OUTPUT TABLE : 
+	create table temp_divisible(num int, divisibility char(50));
+
+CODE :
+	delimiter //
+	create procedure divisible(num int)
+	begin
+		if mod(num,5) = 0 then 
+			insert into temp_divisible values(num," is divisible by 5.");
+		else
+			insert into temp_divisible values(num," is not divisible by 5.");
+		end if;
+	end //
+	delimiter ;
+
+CALLING :
+	call divisible(124);
+
+OUTPUT :
+	mysql> select * from temp_divisible;
+	+------+-------------------------+
+	| num  | divisibility            |
+	+------+-------------------------+
+	|  124 |  is not divisible by 5. |
+	|  150 |  is divisible by 5.     |
+	+------+-------------------------+
+
+
+6. Your block should read in two real numbers and tell whether the product of the two
+numbers is equal to or greater than 100. 
+
+OUTPUT TABLE : 
+	create table temp_greater(Product float, Greater_OR_NOT char(50));
+
+CODE :
+	delimiter //
+	create procedure greater(n1 float, n2 float)
+	begin
+		declare Prod float;
+		set Prod = n1*n2;
+		if Prod > 100 then 
+			insert into temp_greater values(Prod," is greater than 100.");
+		elseif Prod = 100 then
+			insert into temp_greater values(Prod," is equal to 100.");
+		else
+			insert into temp_greater values(Prod," is less than 100.");
+		end if;
+	end //
+	delimiter ;
+
+CALLING :
+	call greater(12, 2);
+
+OUTPUT :
+	mysql> select * from temp_greater;
+	+---------+--------------------+
+	| Product | Greater_OR_NOT     |
+	+---------+--------------------+
+	|      24 |  is less than 100. |
+	+---------+--------------------+
+	1 row in set (0.00 sec)
