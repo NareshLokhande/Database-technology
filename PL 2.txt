@@ -1,0 +1,22 @@
+1. Select from any table a number and determine whether it is within a given range (for
+example, between 1 and 10).
+
+O
+
+2. Select from any table three positive integers representing the sides of a triangle, and
+determine whether they form a valid triangle. Hint: In a triangle, the sum of any two
+sides must always be greater than the third side.
+
+
+
+3. Check if a given a year is a leap year. The condition is:- year should be (divisible by 4
+and not divisible by 100) or (divisible by 4 and divisible by 400.). The year should be
+Selected from some table.
+
+
+
+4. Write a program that Selects from any table two character strings. Your program should
+then determine if one character string exists inside another character string.
+
+
+

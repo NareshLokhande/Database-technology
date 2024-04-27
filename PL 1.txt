@@ -3,11 +3,7 @@ your own values for the length and width. (Assuming that L and W are the length
 and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.
 
 FOR OUTPUT :
-	create table tempp_rect
-	(
-	fir int,
-	sec char(15)
-	);
+	create table tempp_rect(fir int, sec char(15));
 
 CODE :
 	delimiter //
