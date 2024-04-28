@@ -1,7 +1,23 @@
 1. Select from any table a number and determine whether it is within a given range (for
 example, between 1 and 10).
 
-O
+Output Table : 
+	create table temp_pl2_1(FIR float, SEC char(15));
+
+Code :
+	delimiter //
+	create procedure findinrange(a float)
+	begin
+	if a > 1 and a < 10 then 
+	insert into temp_pl2_1 values(a,' is in the range');
+	else 
+	insert into temp_pl2_1 values(a,' is not in the range');
+	end if;
+	end; //
+	delimiter ;
+
+calling :	
+	call findingrange;
 
 2. Select from any table three positive integers representing the sides of a triangle, and
 determine whether they form a valid triangle. Hint: In a triangle, the sum of any two
